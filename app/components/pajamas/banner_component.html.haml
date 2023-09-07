@@ -1,0 +1,22 @@
+%section.gl-banner{ @banner_options, class: banner_class }
+  - if illustration?
+    .gl-banner-illustration
+      = illustration
+  - elsif @svg_path.present?
+    .gl-banner-illustration
+      = image_tag @svg_path, alt: ""
+
+  .gl-banner-content
+    %h1.gl-banner-title= title
+
+    = content
+
+    - if primary_action?
+      = primary_action
+    - else
+      = link_button_to @button_text, @button_link, **@button_options, class: 'js-close-callout', variant: :confirm
+
+    - actions.each do |action|
+      = action
+
+  = render Pajamas::ButtonComponent.new(category: :tertiary, variant: close_button_variant, size: :small, icon: 'close', button_options: @close_options)

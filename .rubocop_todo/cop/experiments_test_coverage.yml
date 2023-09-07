@@ -1,0 +1,6 @@
+---
+Cop/ExperimentsTestCoverage:
+  Exclude:
+    - 'app/controllers/groups/boards_controller.rb'
+    - 'app/controllers/projects/boards_controller.rb'
+    - 'app/experiments/build_ios_app_guide_email_experiment.rb'
